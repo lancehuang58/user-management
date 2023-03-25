@@ -1,0 +1,5 @@
+# Project exclude paths
+/user.cmd.api/target/
+/user.core/target/
+/user.query.api/target/
+.idea
