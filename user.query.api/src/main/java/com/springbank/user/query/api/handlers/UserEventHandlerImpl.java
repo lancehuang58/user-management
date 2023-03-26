@@ -10,7 +10,7 @@ import org.axonframework.eventhandling.EventHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Slf4j
 @Service
@@ -28,7 +28,7 @@ public class UserEventHandlerImpl implements UserEventHandler {
     @Override
     public void on(UserRegisteredEvent event) {
         userRepository.save(event.getUser());
-        log.info("current time {}", LocalDate.now());
+        log.info("user {} register at {}", event.getUser().getFirstname() + " " + event.getUser().getLastname(), LocalDateTime.now());
     }
 
     @EventHandler

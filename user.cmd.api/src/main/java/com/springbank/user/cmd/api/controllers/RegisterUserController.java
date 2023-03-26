@@ -25,16 +25,17 @@ public class RegisterUserController {
 
     @PostMapping
     public ResponseEntity<RegisterUserResponse> registerUser(@Valid @RequestBody RegisterUserCommand command) {
-        command.setId(UUID.randomUUID().toString());
+        String id = UUID.randomUUID().toString();
+        command.setId(id);
         log.info("user register {}", command);
         try {
             commandGateway.sendAndWait(command);
             return new ResponseEntity<>(
-                    new RegisterUserResponse("user successfully registered!"), HttpStatus.CREATED);
+                    new RegisterUserResponse(id, "user successfully registered!"), HttpStatus.CREATED);
         } catch (Exception e) {
             String safeErrorMessage = "error while processing register user for id" + command.getId();
             log.error(safeErrorMessage, e);
-            return new ResponseEntity<>(new RegisterUserResponse(safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(new RegisterUserResponse(id, safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
