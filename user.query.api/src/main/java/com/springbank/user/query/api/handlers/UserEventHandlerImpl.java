@@ -35,11 +35,14 @@ public class UserEventHandlerImpl implements UserEventHandler {
     @Override
     public void on(UserUpdatedEvent event) {
         userRepository.save(event.getUser());
+        log.info("user {} update at {}", event.getUser().getFirstname() + " " + event.getUser().getLastname(), LocalDateTime.now());
     }
 
     @EventHandler
     @Override
     public void on(UserRemovedEvent event) {
+        log.info("remove user {}", event.getId());
         userRepository.deleteById(event.getId());
+        log.info("user id [{}] removed at [{}]", event.getId(), LocalDateTime.now());
     }
 }
