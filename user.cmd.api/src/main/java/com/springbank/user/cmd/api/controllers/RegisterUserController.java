@@ -20,6 +20,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/registerUser")
 @RequiredArgsConstructor
 public class RegisterUserController {
+
     private final CommandGateway commandGateway;
 
     @PostMapping
