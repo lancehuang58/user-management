@@ -81,5 +81,6 @@ public class UserAggregate {
     public void on(UserRemovedEvent event) {
         this.id = event.getId();
         this.user.setId(event.getId());
+        log.info("user being removed.."+ id);
     }
 }
