@@ -21,7 +21,7 @@ public class UserLookupController {
 
     private final QueryGateway queryGateway;
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<UserLookupResponse> getAllUsers() {
         try {
             FindAllUserQuery query = new FindAllUserQuery();
@@ -52,7 +52,7 @@ public class UserLookupController {
         }
     }
 
-    @GetMapping("/{filter}")
+    @GetMapping("byFilter/{filter}")
     public ResponseEntity<UserLookupResponse> searchUserByFilter(@PathVariable String filter) {
         try {
             SearchUsersQuery query = new SearchUsersQuery();
