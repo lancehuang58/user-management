@@ -14,7 +14,7 @@
 	<name>user.query.api</name>
 	<description>User Query API Project</description>
 	<properties>
-		<java.version>1.8</java.version>
+<!--		<java.version>1.8</java.version>-->
 	</properties>
 	<dependencies>
 		<dependency>
