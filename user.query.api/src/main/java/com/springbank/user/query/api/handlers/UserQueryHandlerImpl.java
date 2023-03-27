@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -23,15 +24,15 @@ public class UserQueryHandlerImpl implements UserQueryHandler {
     @QueryHandler
     @Override
     public UserLookupResponse getUserById(FindUserByIdQuery query) {
-
-        return null;
+        Optional<User> optUser = userRepository.findById(query.getId());
+        return new UserLookupResponse(optUser.orElse(null));
     }
 
     @QueryHandler
     @Override
     public UserLookupResponse searchUsers(SearchUsersQuery query) {
-
-        return null;
+        List<User> users = new ArrayList<>(userRepository.findByFilterRegex(query.getFilter()));
+        return new UserLookupResponse(users);
     }
 
     @QueryHandler
