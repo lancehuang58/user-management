@@ -2,4 +2,5 @@
 /user.cmd.api/target/
 /user.core/target/
 /user.query.api/target/
+/user.oauth2.0/target/
 .idea
