@@ -4,3 +4,4 @@
 /user.query.api/target/
 /user.oauth2.0/target/
 .idea
+.vscode
