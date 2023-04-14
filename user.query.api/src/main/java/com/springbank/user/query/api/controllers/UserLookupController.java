@@ -54,6 +54,7 @@ public class UserLookupController {
             query.setFilter(filter);
             return returnByQuery(queryGateway.query(query, ResponseTypes.instanceOf(UserLookupResponse.class)));
         } catch (Exception e) {
+            e.printStackTrace();
             String safeErrorMessage = "Fail to complete search user by filter request";
             return new ResponseEntity<>(new UserLookupResponse(safeErrorMessage), HttpStatus.INTERNAL_SERVER_ERROR);
         }
