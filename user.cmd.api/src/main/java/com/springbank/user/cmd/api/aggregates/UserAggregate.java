@@ -70,17 +70,20 @@ public class UserAggregate {
     public void on(UserRegisteredEvent event) {
         this.id = event.getId();
         this.user = event.getUser();
+        log.info("[event sourcing] register user");
     }
 
     @EventSourcingHandler
     public void on(UserUpdatedEvent event) {
         this.user = event.getUser();
+        log.info("[event sourcing] update user");
     }
 
     @EventSourcingHandler
     public void on(UserRemovedEvent event) {
-        this.id = event.getId();
-        this.user.setId(event.getId());
-        log.info("user being removed.."+ id);
+//        this.id = event.getId();
+//        this.user.setId(event.getId());
+        log.info("[event sourcing] user being removed.."+ id);
+        AggregateLifecycle.markDeleted();
     }
 }
