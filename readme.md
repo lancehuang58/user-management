@@ -89,3 +89,5 @@ Run in Docker:
 
 Client tools in Docker – Adminer:
 > docker run -it -d --name adminer -p 8080:8080 --network springbankNet -e ADMINER_DEFAULT_SERVER=mysql-container --restart always adminer:latest
+
+# 10. Test
