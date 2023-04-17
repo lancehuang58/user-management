@@ -65,6 +65,9 @@ docker network create --attachable -d overlay springbankNet
 Run in Docker:
 > docker run -d --name axon-server -p 8024:8024 -p 8124:8124 --network springbankNet --restart always axoniq/axonserver:latest
 
+Run local:
+> java -jar  D:\tools\axonserver\AxonServer-4.6.10\axonserver.jar
+
 Once installed, check if running:
 http://localhost:8024/
 
@@ -72,6 +75,9 @@ http://localhost:8024/
 
 Run in Docker:
 > docker run -it -d --name mongo-container -p 27017:27017 --network springbankNet --restart always -v mongodb_data_container:/data/db mongo:latest
+
+Run local: 
+> D:/tools/mongodb-6.0.5/bin/mongod --dbpath D:/tools/mongodb-6.0.5/data
 
 Download Client Tools – Robo 3T:
 https://robomongo.org/download
